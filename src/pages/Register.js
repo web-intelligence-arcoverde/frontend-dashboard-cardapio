@@ -5,10 +5,10 @@ import { Box, Card, Link, Container, Typography } from '@mui/material';
 // layouts
 import AuthLayout from '../layouts/AuthLayout';
 // components
-import Page from '../components/Page';
+import Page from '../atomic/atoms/LayoutPageHelmet';
 import { MHidden } from '../components/@material-extend';
 import { RegisterForm } from '../components/authentication/register';
-import AuthSocial from '../components/authentication/AuthSocial';
+import AuthSocial from '../atomic/molecules/LoginAuthSocial';
 
 // ----------------------------------------------------------------------
 

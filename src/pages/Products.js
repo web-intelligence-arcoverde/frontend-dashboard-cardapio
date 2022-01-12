@@ -3,7 +3,7 @@ import { useState } from 'react';
 // material
 import { Container, Stack, Typography } from '@mui/material';
 // components
-import Page from '../components/Page';
+import Page from '../atomic/atoms/LayoutPageHelmet';
 import {
   ProductSort,
   ProductList,

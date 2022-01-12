@@ -21,7 +21,7 @@ import {
   TablePagination
 } from '@mui/material';
 // components
-import Page from '../components/Page';
+import Page from '../atomic/atoms/LayoutPageHelmet';
 import Label from '../components/Label';
 import Scrollbar from '../components/Scrollbar';
 import SearchNotFound from '../components/SearchNotFound';
