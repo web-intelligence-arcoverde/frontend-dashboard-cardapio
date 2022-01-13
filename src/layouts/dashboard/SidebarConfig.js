@@ -30,6 +30,11 @@ const sidebarConfig = [
     icon: getIcon(shoppingBagFill)
   },
   {
+    title: 'cargos',
+    path: '/dashboard/cargos',
+    icon: getIcon(shoppingCart)
+  },
+  {
     title: 'pedido',
     path: '/dashboard/order',
     icon: getIcon(shoppingCart)

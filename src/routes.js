@@ -24,6 +24,7 @@ export default function Router() {
         { path: 'app', element: <DashboardApp /> },
         { path: 'user', element: <User /> },
         { path: 'user/create', element: <CreateUser /> },
+        { path: 'user/edit', element: <CreateUser /> },
         { path: 'user', element: <User /> },
         { path: 'products', element: <User /> },
         { path: 'order', element: <User /> },

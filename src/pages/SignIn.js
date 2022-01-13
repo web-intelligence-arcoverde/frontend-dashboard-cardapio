@@ -2,8 +2,8 @@ import { styled } from '@mui/material/styles';
 import { Stack, Container, Typography } from '@mui/material';
 
 // components
-import Page from '../../atomic/atoms/LayoutPageHelmet';
-import LoginForm from '../../atomic/molecules/LoginForm';
+import Page from '../atomic/atoms/LayoutPageHelmet';
+import LoginForm from '../atomic/molecules/LoginForm';
 
 // ----------------------------------------------------------------------
 
