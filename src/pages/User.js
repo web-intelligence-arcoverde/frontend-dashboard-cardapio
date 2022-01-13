@@ -31,16 +31,13 @@ import USERLIST from '../_mocks_/user';
 
 // ----------------------------------------------------------------------
 
-const TABLE_HEAD = [
-  { id: 'name', label: 'Name', alignRight: false },
-  { id: 'company', label: 'Company', alignRight: false },
-  { id: 'role', label: 'Role', alignRight: false },
-  { id: 'isVerified', label: 'Verified', alignRight: false },
-  { id: 'status', label: 'Status', alignRight: false },
-  { id: '' }
-];
-
 // ----------------------------------------------------------------------
+
+const TABLE_HEAD = [
+  { id: 'name', label: 'Nome', alignRight: false },
+  { id: 'role', label: 'Cargo', alignRight: false },
+  { id: 'status', label: 'Status', alignRight: false }
+];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -136,15 +133,15 @@ export default function User() {
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            User
+            Usuario
           </Typography>
           <Button
             variant="contained"
             component={RouterLink}
-            to="#"
+            to="/dashboard/user/create"
             startIcon={<Icon icon={plusFill} />}
           >
-            New User
+            Novo usuario
           </Button>
         </Stack>
 
@@ -156,7 +153,7 @@ export default function User() {
           />
 
           <Scrollbar>
-            <TableContainer sx={{ minWidth: 800 }}>
+            <TableContainer sx={{ width: '100%' }}>
               <Table>
                 <UserListHead
                   order={order}
@@ -171,7 +168,7 @@ export default function User() {
                   {filteredUsers
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     .map((row) => {
-                      const { id, name, role, status, company, avatarUrl, isVerified } = row;
+                      const { id, name, status, avatarUrl, isVerified } = row;
                       const isItemSelected = selected.indexOf(name) !== -1;
 
                       return (
@@ -197,8 +194,6 @@ export default function User() {
                               </Typography>
                             </Stack>
                           </TableCell>
-                          <TableCell align="left">{company}</TableCell>
-                          <TableCell align="left">{role}</TableCell>
                           <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell>
                           <TableCell align="left">
                             <Label
