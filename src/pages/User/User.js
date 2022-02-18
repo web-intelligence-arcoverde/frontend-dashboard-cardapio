@@ -21,13 +21,13 @@ import {
   TablePagination
 } from '@mui/material';
 // components
-import Page from '../atomic/atoms/LayoutPageHelmet';
-import Label from '../components/Label';
-import Scrollbar from '../components/Scrollbar';
-import SearchNotFound from '../components/SearchNotFound';
-import { UserListHead, UserListToolbar, UserMoreMenu } from '../components/_dashboard/user';
+import Page from '../../atomic/layout/ReactHelmetContainer';
+import Label from '../../components/Label';
+import Scrollbar from '../../components/Scrollbar';
+import SearchNotFound from '../../components/SearchNotFound';
+import { UserListHead, UserListToolbar, UserMoreMenu } from '../../components/_dashboard/user';
 //
-import USERLIST from '../_mocks_/user';
+import USERLIST from '../../_mocks_/user';
 
 // ----------------------------------------------------------------------
 

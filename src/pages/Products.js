@@ -6,7 +6,7 @@ import { Container, Stack, Typography, Fab } from '@mui/material';
 import { useNavigate } from 'react-router';
 import plusFill from '@iconify/icons-eva/plus-fill';
 import { Icon } from '@iconify/react';
-import Page from '../atomic/atoms/LayoutPageHelmet';
+import Page from '../atomic/layout/ReactHelmetContainer';
 import {
   ProductSort,
   ProductList,

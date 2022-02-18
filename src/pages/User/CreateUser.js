@@ -17,8 +17,8 @@ import eyeOffFill from '@iconify/icons-eva/eye-off-fill';
 
 import { useFormik, Form, FormikProvider } from 'formik';
 
-import Page from '../atomic/atoms/LayoutPageHelmet';
-import Select from '../atomic/atoms/Select';
+import Page from '../../atomic/layout/ReactHelmetContainer';
+import Select from '../../atomic/atoms/Select';
 
 const Index = () => {
   const LoginSchema = Yup.object().shape({

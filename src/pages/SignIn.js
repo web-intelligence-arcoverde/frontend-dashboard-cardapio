@@ -2,7 +2,7 @@ import { styled } from '@mui/material/styles';
 import { Stack, Container, Typography } from '@mui/material';
 
 // components
-import Page from '../atomic/atoms/LayoutPageHelmet';
+import Page from '../atomic/layout/ReactHelmetContainer';
 import LoginForm from '../atomic/molecules/LoginForm';
 
 // ----------------------------------------------------------------------

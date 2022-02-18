@@ -4,6 +4,8 @@ import peopleFill from '@iconify/icons-eva/people-fill';
 import shoppingBagFill from '@iconify/icons-eva/shopping-bag-fill';
 import shoppingCart from '@iconify/icons-eva/shopping-cart-fill';
 
+import job from '@iconify/icons-eva/briefcase-outline';
+
 // ----------------------------------------------------------------------
 
 const getIcon = (name) => <Icon icon={name} width={22} height={22} />;
@@ -15,8 +17,27 @@ const sidebarConfig = [
     icon: getIcon(pieChart2Fill)
   },
   {
+    title: 'Cargo',
+    path: '/dashboard/role',
+    icon: getIcon(job)
+  }
+];
+
+/*
+
+{
     title: 'usuario',
     path: '/dashboard/user',
+    icon: getIcon(peopleFill)
+  },
+  {
+    title: 'mesa',
+    path: '/dashboard/client',
+    icon: getIcon(peopleFill)
+  },
+  {
+    title: 'cliente',
+    path: '/dashboard/client',
     icon: getIcon(peopleFill)
   },
   {
@@ -39,6 +60,7 @@ const sidebarConfig = [
     path: '/dashboard/order',
     icon: getIcon(shoppingCart)
   }
-];
+
+  */
 
 export default sidebarConfig;

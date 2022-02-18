@@ -1,7 +1,7 @@
 // material
 import { Box, Grid, Container, Typography } from '@mui/material';
 // components
-import Page from '../atomic/atoms/LayoutPageHelmet';
+import Page from '../atomic/layout/ReactHelmetContainer';
 import {
   AppTasks,
   AppNewUsers,

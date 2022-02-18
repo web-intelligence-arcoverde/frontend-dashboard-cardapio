@@ -1,3 +1,6 @@
+import { Provider } from 'react-redux';
+import store from './store';
+
 // routes
 import Router from './routes';
 // theme
@@ -11,11 +14,13 @@ import { BaseOptionChartStyle } from './components/charts/BaseOptionChart';
 
 export default function App() {
   return (
-    <ThemeConfig>
-      <ScrollToTop />
-      <GlobalStyles />
-      <BaseOptionChartStyle />
-      <Router />
-    </ThemeConfig>
+    <Provider store={store}>
+      <ThemeConfig>
+        <ScrollToTop />
+        <GlobalStyles />
+        <BaseOptionChartStyle />
+        <Router />
+      </ThemeConfig>
+    </Provider>
   );
 }

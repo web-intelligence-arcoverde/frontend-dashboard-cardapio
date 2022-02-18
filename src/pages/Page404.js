@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 import { Box, Button, Typography, Container } from '@mui/material';
 // components
 import { MotionContainer, varBounceIn } from '../components/animate';
-import Page from '../atomic/atoms/LayoutPageHelmet';
+import Page from '../atomic/layout/ReactHelmetContainer';
 
 // ----------------------------------------------------------------------
 
