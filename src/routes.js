@@ -1,6 +1,5 @@
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
-import LogoOnlyLayout from './layouts/LogoOnlyLayout';
 import DashboardLayout from './layouts/dashboard';
 
 import Login from './pages/SignIn';
