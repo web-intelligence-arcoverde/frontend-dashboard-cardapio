@@ -6,15 +6,7 @@ import { Icon } from '@iconify/react';
 import eyeFill from '@iconify/icons-eva/eye-fill';
 import eyeOffFill from '@iconify/icons-eva/eye-off-fill';
 // material
-import {
-  Stack,
-  Checkbox,
-  TextField,
-  IconButton,
-  InputAdornment,
-  FormControlLabel,
-  Button
-} from '@mui/material';
+import { Stack, TextField, IconButton, InputAdornment, Button } from '@mui/material';
 
 import { useDispatch } from 'react-redux';
 import { loadRequest } from '../../../store/modules/auth/actions';
@@ -37,8 +29,8 @@ export default function LoginForm() {
     validationSchema: LoginSchema,
     onSubmit: (data) => {
       console.log(data);
-      // navigate('/dashboard', { replace: true });
       dispatch(loadRequest(data));
+      // navigate('/dashboard/app', { replace: true });
     }
   });
 

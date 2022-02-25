@@ -1,38 +1,55 @@
-import { Navigate, useRoutes } from 'react-router-dom';
-// layouts
-import DashboardLayout from './layouts/dashboard';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+
 import LogoOnlyLayout from './layouts/LogoOnlyLayout';
-//
+import DashboardLayout from './layouts/dashboard';
+
 import Login from './pages/SignIn';
-import DashboardApp from './pages/DashboardApp';
+import Dashboard from './pages/DashboardApp';
 
 import ListRoles from './pages/Role/List';
 import CreateRole from './pages/Role/Create';
 
-import Error from './pages/Page404';
+const history = { navigate: () => {} };
 
-// ----------------------------------------------------------------------
+const useSetHistory = () => {
+  history.navigate = useNavigate();
+};
+
+export const navigateTo = (route, ...params) => {
+  history.navigate(route, ...params);
+};
 
 export default function Router() {
-  return useRoutes([
-    {
-      path: '/dashboard',
-      element: <DashboardLayout />,
-      children: [
-        { element: <Navigate to="/dashboard/app" replace /> },
-        { path: 'app', element: <DashboardApp /> },
-        { path: 'role', element: <ListRoles /> },
-        { path: 'role/create', element: <CreateRole /> }
-      ]
-    },
-    {
-      path: '/',
-      element: <LogoOnlyLayout />,
-      children: [
-        { path: '/', element: <Login /> },
-        { path: '/404', element: <Error /> }
-      ]
-    },
-    { path: '*', element: <Navigate to="/404" replace /> }
-  ]);
+  useSetHistory();
+  return (
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route
+        path="/dashboard"
+        element={
+          <DashboardLayout>
+            <Dashboard />
+          </DashboardLayout>
+        }
+      />
+
+      <Route
+        path="/dashboard/role"
+        element={
+          <DashboardLayout>
+            <ListRoles />
+          </DashboardLayout>
+        }
+      />
+
+      <Route
+        path="/dashboard/role/create"
+        element={
+          <DashboardLayout>
+            <CreateRole />
+          </DashboardLayout>
+        }
+      />
+    </Routes>
+  );
 }

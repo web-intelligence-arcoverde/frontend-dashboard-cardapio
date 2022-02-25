@@ -1,6 +1,8 @@
-import { push } from 'connected-react-router';
 import { call, put } from 'redux-saga/effects';
+import { push } from 'connected-react-router';
 import api from '../../../service/api';
+
+import { navigateTo } from '../../../routes';
 
 import { loadSuccess, loadFailure } from './actions';
 
@@ -9,10 +11,10 @@ export function* signIn({ payload }) {
     const response = yield call(api.post, 'auth', payload);
 
     localStorage.setItem('token', response.data.token);
-    console.log(response);
     yield put(loadSuccess(response.data.token));
-    yield put(push('/dashboard/app'));
-    // yield put(push('/dashboard/app'));
+
+    yield call(navigateTo('/dashboard'));
+    // yield put(navigate('/dashboard/app'));
   } catch (err) {
     yield put(loadFailure());
   }
