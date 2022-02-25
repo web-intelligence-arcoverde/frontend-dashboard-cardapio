@@ -6,19 +6,15 @@ import { Icon } from '@iconify/react';
 import eyeFill from '@iconify/icons-eva/eye-fill';
 import eyeOffFill from '@iconify/icons-eva/eye-off-fill';
 // material
-import {
-  Stack,
-  Checkbox,
-  TextField,
-  IconButton,
-  InputAdornment,
-  FormControlLabel
-} from '@mui/material';
-import { LoadingButton } from '@mui/lab';
+import { Stack, TextField, IconButton, InputAdornment, Button } from '@mui/material';
+
+import { useDispatch } from 'react-redux';
+import { loadRequest } from '../../../store/modules/auth/actions';
 
 export default function LoginForm() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
 
   const LoginSchema = Yup.object().shape({
     email: Yup.string().email('Email tem que ser valido').required('Email é obrigatorio'),
@@ -33,7 +29,8 @@ export default function LoginForm() {
     validationSchema: LoginSchema,
     onSubmit: (data) => {
       console.log(data);
-      navigate('/dashboard', { replace: true });
+      dispatch(loadRequest(data));
+      // navigate('/dashboard/app', { replace: true });
     }
   });
 
@@ -56,7 +53,6 @@ export default function LoginForm() {
             error={Boolean(touched.email && errors.email)}
             helperText={touched.email && errors.email}
           />
-
           <TextField
             fullWidth
             autoComplete="current-password"
@@ -75,24 +71,11 @@ export default function LoginForm() {
             error={Boolean(touched.password && errors.password)}
             helperText={touched.password && errors.password}
           />
-        </Stack>
 
-        <Stack direction="row" alignItems="flex-end" justifyContent="flex-end" sx={{ my: 2 }}>
-          <FormControlLabel
-            control={<Checkbox {...getFieldProps('remember')} checked={values.remember} />}
-            label="Lembre-me"
-          />
+          <Button fullWidth size="large" type="submit" variant="contained">
+            Entrar
+          </Button>
         </Stack>
-
-        <LoadingButton
-          fullWidth
-          size="large"
-          type="submit"
-          variant="contained"
-          loading={isSubmitting}
-        >
-          Entrar
-        </LoadingButton>
       </Form>
     </FormikProvider>
   );
