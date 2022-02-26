@@ -29,7 +29,7 @@ export default function Login() {
       <Container maxWidth="sm">
         <ContentStyle>
           <Stack sx={{ mb: 5 }} direction="column" alignItems="center" justifyContent="center">
-            <Typography variant="h2" gutterBottom color="primary" onClick={() => console.log(user)}>
+            <Typography variant="h2" gutterBottom color="primary">
               Entrar
             </Typography>
           </Stack>

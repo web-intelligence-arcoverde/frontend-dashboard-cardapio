@@ -12,7 +12,6 @@ import { useDispatch } from 'react-redux';
 import { loadRequest } from '../../../store/modules/auth/actions';
 
 export default function LoginForm() {
-  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
 
@@ -27,11 +26,7 @@ export default function LoginForm() {
       password: ''
     },
     validationSchema: LoginSchema,
-    onSubmit: (data) => {
-      console.log(data);
-      dispatch(loadRequest(data));
-      // navigate('/dashboard/app', { replace: true });
-    }
+    onSubmit: (data) => dispatch(loadRequest(data))
   });
 
   const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik;
