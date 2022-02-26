@@ -1,6 +1,5 @@
-import { Routes, Route, useNavigate, Redirect } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
-import { useSelector } from 'react-redux';
 import DashboardLayout from './layouts/dashboard';
 
 import Login from './pages/SignIn';
@@ -9,15 +8,7 @@ import Dashboard from './pages/DashboardApp';
 import ListRoles from './pages/Role/List';
 import CreateRole from './pages/Role/Create';
 
-const history = { navigate: () => {} };
-
-const useSetHistory = () => {
-  history.navigate = useNavigate();
-};
-
-export const navigateTo = (route, ...params) => {
-  history.navigate(route, ...params);
-};
+import { useSetHistory } from './helpers/navigate';
 
 export default function Router() {
   useSetHistory();

@@ -1,7 +1,7 @@
 import { call, put } from 'redux-saga/effects';
 import api from '../../../service/api';
 
-import { navigateTo } from '../../../routes';
+import { navigateTo } from '../../../helpers/navigate';
 
 import { loadSuccess, loadFailure } from './actions';
 
