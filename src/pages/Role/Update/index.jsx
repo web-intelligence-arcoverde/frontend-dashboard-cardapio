@@ -8,9 +8,8 @@ import { useFormik, Form, FormikProvider } from 'formik';
 import { useNavigate } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
-import Page from '../../../atomic/layout/ReactHelmetContainer';
-
-import { updateRoleRequest } from '../../../store/modules/role/actions';
+import { updateRoleRequest } from 'src/store/modules/role/actions';
+import Page from 'src/atomic/layout/ReactHelmetContainer';
 
 const Index = () => {
   const role = useSelector((state) => state.role.role);
