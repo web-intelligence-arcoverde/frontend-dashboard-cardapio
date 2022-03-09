@@ -27,13 +27,11 @@ import MoreMenu from '../../molecules/MoreMenuList';
 
 import SearchNotFound from '../../molecules/SearchNotFound';
 
-import Label from '../../atoms/Label';
-
-import USERLIST from '../../../_mocks_/user';
 import { getComparator, applySortFilter, TABLE_HEAD_ROLE } from '../../../utils/listFunctions';
 
 export default function () {
-  const data = USERLIST;
+  const data = useSelector((state) => state.role.data);
+
   const [page, setPage] = useState(0);
   const [order, setOrder] = useState('asc');
   const [selected, setSelected] = useState([]);
@@ -117,12 +115,13 @@ export default function () {
               onRequestSort={handleRequestSort}
               onSelectAllClick={handleSelectAllClick}
             />
+
             <TableBody>
               {filteredUsers
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row) => {
-                  const { id, name, status } = row;
-                  const isItemSelected = selected.indexOf(name) !== -1;
+                  const { id, nome, status } = row;
+                  const isItemSelected = selected.indexOf(nome) !== -1;
 
                   return (
                     <TableRow
@@ -136,27 +135,31 @@ export default function () {
                       <TableCell padding="checkbox">
                         <Checkbox
                           checked={isItemSelected}
-                          onChange={(event) => handleClick(event, name)}
+                          onChange={(event) => handleClick(event, nome)}
                         />
                       </TableCell>
                       <TableCell component="th" scope="row" padding="none">
                         <Stack direction="row" alignItems="center" spacing={2}>
-                          <Typography variant="subtitle2" noWrap>
-                            {name}
+                          <Typography
+                            variant="subtitle2"
+                            noWrap
+                            style={{ textTransform: 'capitalize' }}
+                          >
+                            {nome}
                           </Typography>
                         </Stack>
                       </TableCell>
-                      <TableCell align="left">
+                      {/*  <TableCell align="left">
                         <Label
                           variant="ghost"
                           color={(status === 'banned' && 'error') || 'success'}
                         >
                           {sentenceCase(status)}
                         </Label>
-                      </TableCell>
+                  </TableCell> */}
 
                       <TableCell align="right">
-                        <MoreMenu />
+                        <MoreMenu role={row} />
                       </TableCell>
                     </TableRow>
                   );
@@ -167,6 +170,7 @@ export default function () {
                 </TableRow>
               )}
             </TableBody>
+
             {isUserNotFound && (
               <TableBody>
                 <TableRow>

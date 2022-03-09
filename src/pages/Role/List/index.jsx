@@ -1,16 +1,10 @@
-import { useSelector } from 'react-redux';
-
 import { Container } from '@mui/material';
 
-import Page from '../../../atomic/layout/ReactHelmetContainer';
-import Header from '../../../atomic/molecules/Header';
-
-/* componente especifico */
-import List from '../../../atomic/organisms/ListRole';
+import List from 'src/atomic/organisms/ListRole';
+import Page from 'src/atomic/layout/ReactHelmetContainer';
+import Header from 'src/atomic/molecules/Header';
 
 export default function Role() {
-  const test = useSelector((state) => state);
-
   return (
     <Page title="Cargo | Dashboard">
       <Container>

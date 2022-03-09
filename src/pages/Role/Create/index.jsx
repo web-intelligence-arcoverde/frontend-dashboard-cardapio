@@ -5,20 +5,29 @@ import * as Yup from 'yup';
 
 import { useFormik, Form, FormikProvider } from 'formik';
 
+import { useDispatch } from 'react-redux';
+
+import { useNavigate } from 'react-router-dom';
 import Page from '../../../atomic/layout/ReactHelmetContainer';
 
+import { createRoleRequest } from '../../../store/modules/role/actions';
+
 const Index = () => {
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
   const LoginSchema = Yup.object().shape({
-    name: Yup.string().required('O nome do cargo é obrigatorio')
+    nome: Yup.string().required('O nome do cargo é obrigatorio')
   });
 
   const formik = useFormik({
     initialValues: {
-      name: ''
+      nome: ''
     },
     validationSchema: LoginSchema,
     onSubmit: (data) => {
-      console.log({ data });
+      dispatch(createRoleRequest(data));
     }
   });
 
@@ -31,7 +40,12 @@ const Index = () => {
           <Typography variant="h4" gutterBottom>
             Criar Novo Cargo
           </Typography>
-          <Button variant="contained">Voltar</Button>
+          <Button
+            variant="contained"
+            onClick={(e) => navigate('/dashboard/role', { replace: true })}
+          >
+            Voltar
+          </Button>
         </Stack>
 
         <FormikProvider value={formik} autocomplete="off">
@@ -42,7 +56,7 @@ const Index = () => {
                 placeholder="Informe o nome do novo cargo"
                 type="text"
                 label="Cargo:"
-                {...getFieldProps('name')}
+                {...getFieldProps('nome')}
                 error={Boolean(touched.email && errors.email)}
                 helperText={touched.email && errors.email}
                 autoComplete="off"
